@@ -1,1 +1,2 @@
-Simple Calculator written in c
+# Simple calculators in multiple langauges
+Simple Calculators
