@@ -105,7 +105,7 @@ float my_sqrt(float x, float y) { // It worky :D
         delta = my_fabs(1, theta - gamma);
     } while (delta > 1e-10);
 
-    return theta;
+    return theta *= x;
 }
 
 float calculator(char* op, float x, float y) { // It worky :D
