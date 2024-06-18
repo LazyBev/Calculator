@@ -17,8 +17,6 @@ float my_fact(float x, int y);
 float my_pow(float x, int y);
 float my_sqrt(float x, float y);
 float my_nrt(float x, float y);
-float my_sin(float x, float y);
-float my_asin(float x, float y);
 float calculator(char* op, float x, float y);
 
 float my_fabs(float x, float y) { // It worky :D
@@ -110,40 +108,6 @@ float my_sqrt(float x, float y) { // It worky :D
     return theta;
 }
 
-float my_sin(float x, float y) { // is completely brocken :'C
-    float result = y;
-    int sign = -1;
-    float term = y - sign * my_pow(y, 3) / my_fact(1, 3);;
-
-    for (int i = 5; my_fabs(1, term) > 1e-100; i += 2) {
-        term = sign * my_pow(y, i) / my_fact(1, i);
-        result += term;
-        sign *= -1;
-    }
- 
-    return result *= x;
-}
-
-float my_asin(float x, float y) { // is slightly brocken :'C
-    if (y < -0.5) {
-        return -PI / 2 + 2 * my_asin(x, my_sqrt(1, (1 + -y) / 2));
-    } else if (y > 0.5) {
-        return PI / 2 - 2 * my_asin(x, my_sqrt(1, (1 - y) / 2));
-    }
-
-    float result = y;
-    float term = y;
-    int n = 1;
-
-    while (my_fabs(1, term) > 1e-100) {
-        term *= (y * y * (2 * n - 1) * (2 * n - 1)) / ((2 * n) * (2 * n + 1));
-        result += term / (2 * n + 1);
-        n++;
-    }
-
-    return result *= x;
-}
-
 float calculator(char* op, float x, float y) { // It worky :D
     system("clear");
     float result = 0.0;
@@ -168,10 +132,6 @@ float calculator(char* op, float x, float y) { // It worky :D
         result = my_sqrt(x, y);
     } else if (strcmp(op, "pow") == 0) {
         result = my_pow(x, (int)y);
-    } else if (strcmp(op, "sin") == 0) {
-        result = my_sin(x, y);
-    } else if (strcmp(op, "asin") == 0) {
-        result = my_asin(x, y);
     } else if (strcmp(op, "fabs") == 0){
         result = my_fabs(x, y);
     } else if (strcmp(op, "abs") == 0){
