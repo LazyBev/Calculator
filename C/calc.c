@@ -144,8 +144,7 @@ float calculator(char* op, float x, float y) {
 
 int main() {
     system("clear");
-    char *op = (char *)malloc(6 * sizeof(char)); // Allocate memory for operation string
-    float x, y;
+    char *op = (char *)malloc(6 * sizeof(char)); 
     int yn;
 
     printf("How many variables: ");
